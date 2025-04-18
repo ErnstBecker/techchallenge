@@ -15,7 +15,7 @@ Este projeto é uma API REST que fornece informações sobre as criptomoedas com
 	```bash
 	RUN ./mvnw install
 	```
-  
+
 1. Defina a variável de ambiente `CURRENCY_LAYER_ACCESS_KEY` com o seu token da currencyLayer.
   ```bash
   export CURRENCY_LAYER_ACCESS_KEY=seu_token
@@ -27,7 +27,7 @@ Este projeto é uma API REST que fornece informações sobre as criptomoedas com
   ```
 
 	Isso iniciará dois containers:
-	- Redis na porta 6380
+	- Redis na porta 6379
 	- Aplicação Spring Boot na porta 8080
 
 3. A aplicação estará disponível em:
