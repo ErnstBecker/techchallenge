@@ -1,7 +1,7 @@
 # Techchallenge
 
 ## Sobre
-Este projeto é uma API REST que fornece informações sobre as criptomoedas com maior valor de mercado. A aplicação utiliza a API do Coinpaprika para obter dados de criptomoedas, armazena-os em cache usando Redis, e oferece um endpoint para consultar as top criptomoedas por capitalização de mercado. Também fornece funcionalidade de conversão de moeda usando a API Currencylayer, permitindo que os usuários vejam os valores em diferentes moedas fiduciárias.
+Este projeto é uma API REST que fornece informações sobre as criptomoedas com maior valor de mercado. A aplicação utiliza a API do Coinpaprika para obter dados de criptomoedas, armazena-os em cache usando Redis, e oferece um endpoint para consultar as top criptomoedas por valor de mercado. Também fornece funcionalidade de conversão de moeda usando a API Currencylayer, permitindo que os usuários vejam os valores em diferentes moedas fiduciárias.
 
 ## 1. Instruções para Rodar o Projeto com Docker
 
@@ -94,12 +94,11 @@ A aplicação atualmente falha quando o Redis não está disponível. Implementa
 Não existe validação para o parâmetro `currency` recebido do usuário. Adicionar validação contra uma lista de moedas suportadas evitaria erros na API de conversão e melhoraria a experiência do usuário.
 
 ### 3.5. Utilizar Mappers e DTOs
-Seguindo melhor os princípios da arquitetura hexagonal, seria recomendável separar os objetos de domínio dos DTOs usados na comunicação com sistemas externos. Atualmente, todas as classes estão no pacote `domain.models`, o que pode dificultar a manutenção e evolução do sistema.
+Seguindo melhor os princípios da arquitetura hexagonal, seria recomendável separar os objetos de domínio dos DTOs usados na comunicação com sistemas externos. Atualmente, todas as classes estão no pacote `domain.models`.
 
 ### 3.6. Aumentar a cobertura de testes
 A cobertura de testes está abaixo do ideal. Seria recomendável aumentar a cobertura dos testes unitários para garantir maior confiabilidade, facilitar refatorações, e validar casos.
-
-### (BONUS) Adicionar testes end-to-end
+(BONUS) Adicionar testes End-to-End.
 
 ## 4. Bibliotecas Utilizadas
 
@@ -117,9 +116,6 @@ Reduz o boilerplate code através de anotações, melhorando a legibilidade e ma
 
 ### JUnit
 Framework de testes unitários utilizado para garantir a qualidade e estabilidade do código.
-
-### Springdoc OpenAPI
-Gera documentação OpenAPI automaticamente para as APIs REST, facilitando o entendimento e consumo dos endpoints.
 
 ### Maven
 Ferramenta de automação de build e gerenciamento de dependências.
