@@ -1,0 +1,35 @@
+
+version: '3.8'
+
+services:
+  app:
+    container_name: magic-coins-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+    environment:
+      - SPRING_DATA_REDIS_HOST=redis
+      - SPRING_DATA_REDIS_PORT=6379
+    networks:
+      - app-network
+
+  redis:
+    container_name: magic-coins-cache
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network
+    volumes:
+      - redis-data:/data
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  redis-data:
