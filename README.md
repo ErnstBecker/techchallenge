@@ -11,30 +11,40 @@ Este projeto é uma API REST que fornece informações sobre as criptomoedas com
 - Acesso à internet para download das imagens Docker e acesso às APIs externas
 
 ### Passos para Execução
-1. Execute a aplicação usando Docker Compose:
-   ```bash
-   docker-compose up -d
-   ```
-   
-   Isso iniciará dois containers:
-   - Redis na porta 6379
-   - Aplicação Spring Boot na porta 8080
+0. (Opcional) Caso queira executar a aplicação com os testes, remova a flag `-DskipTests` do arquivo Dockerfile. Assim como o exemplo abaixo:
+	```bash
+	RUN ./mvnw install
+	```
+  
+1. Defina a variável de ambiente `CURRENCY_LAYER_ACCESS_KEY` com o seu token da currencyLayer.
+  ```bash
+  export CURRENCY_LAYER_ACCESS_KEY=seu_token
+  ```
 
-2. A aplicação estará disponível em:
-   ```
-   http://localhost:8080
-   ```
+2. Execute a aplicação usando Docker Compose:
+  ```bash
+  docker-compose up -d
+  ```
 
-3. Para parar a aplicação:
-   ```bash
-   docker-compose down
-   ```
+	Isso iniciará dois containers:
+	- Redis na porta 6380
+	- Aplicação Spring Boot na porta 8080
+
+3. A aplicação estará disponível em:
+  ```
+  http://localhost:8080
+  ```
+
+4. Para parar a aplicação:
+  ```bash
+  docker-compose down
+  ```
 
 ## 2. Endpoints da Aplicação
 
 ### Obter Top Criptomoedas
 ```
-GET http:/localhost:8080/rest/v1/magic-coins
+GET localhost:8080/rest/v1/magic-coins
 ```
 
 **Parâmetros de consulta:**
@@ -43,7 +53,7 @@ GET http:/localhost:8080/rest/v1/magic-coins
 
 **Exemplo de requisição:**
 ```
-GET http:/localhost:8080/rest/v1/magic-coins?currency=BRL&top=10
+GET localhost:8080/rest/v1/magic-coins?currency=BRL&top=10
 ```
 
 **Exemplo de resposta:**
